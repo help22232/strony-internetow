@@ -56,7 +56,7 @@
   .gallery div{aspect-ratio:1;border-radius:14px}
   @media(max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
   .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-  .review{background:var(--bg);border-radius:18px;padding:24px}
+  .review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
   .review .stars{color:var(--rose);letter-spacing:2px}
   .review p{margin:10px 0;font-style:italic}
   .review small{color:var(--muted)}
@@ -71,6 +71,28 @@
     linear-gradient(35deg,transparent 60%,#fff 60% 63%,transparent 63%),#e8ddd4;position:relative}
   .map::after{content:"📍";position:absolute;left:50%;top:50%;transform:translate(-50%,-80%);font-size:40px}
   .contact a.big{display:block;font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:700;text-decoration:none;margin:6px 0}
+  .usp{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:10px}
+  .usp div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;gap:12px;align-items:center;font-size:15px}
+  .usp b{font-size:24px;color:var(--rose)}
+  @media(max-width:860px){.usp{grid-template-columns:1fr 1fr}}
+  .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}
+  .about p{color:var(--muted)}
+  .photo.small{aspect-ratio:1;border-radius:24px 200px 24px 24px}
+  @media(max-width:760px){.about{grid-template-columns:1fr}.photo.small{height:240px;aspect-ratio:auto}}
+  .packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .pack{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative}
+  .pack.hot{border:2px solid var(--rose)}
+  .pack h3{font-size:30px}
+  .pack .pr{font-weight:600;color:var(--rose);font-size:20px;margin:4px 0 12px}
+  .pack ul{list-style:none} .pack li{padding:6px 0 6px 22px;position:relative;border-top:1px solid var(--line);font-size:15px}
+  .pack li::before{content:"✓";position:absolute;left:0;color:var(--rose)}
+  .badge{position:absolute;top:-12px;left:20px;background:var(--rose);color:#fff;font-size:12px;padding:3px 10px;border-radius:99px;font-weight:600}
+  .voucher{display:flex;gap:30px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(120deg,var(--rose-soft),#fff);border:1px dashed var(--rose);border-radius:20px;padding:30px;margin-top:20px}
+  .voucher div{max-width:620px}
+  .faq{display:grid;gap:10px;max-width:780px}
+  .faq details{background:var(--bg);border-radius:14px;padding:16px 20px}
+  .faq summary{cursor:pointer;font-weight:600}
+  .faq p{color:var(--muted);margin-top:8px}
   footer{padding:30px 0;color:var(--muted);font-size:14px;text-align:center}
   .float{position:fixed;right:18px;bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:6}
 </style>
@@ -80,7 +102,7 @@
 
 <header><div class="wrap">
   <a class="logo" href="#">Lustro<span>.</span></a>
-  <nav><a href="#cennik">Cennik</a><a href="#zespol">Zespół</a><a href="#opinie">Opinie</a><a href="#kontakt">Kontakt</a></nav>
+  <nav><a href="#onas">O nas</a><a href="#cennik">Cennik</a><a href="#slub">Ślub</a><a href="#zespol">Zespół</a><a href="#opinie">Opinie</a><a href="#kontakt">Kontakt</a></nav>
 </div></header>
 
 <main>
@@ -92,6 +114,22 @@
     </div>
     <div class="photo" role="img" aria-label="Ilustracja salonu"></div>
   </div>
+
+  <div class="wrap"><div class="usp">
+    <div><b>✂</b><span>Konsultacja przed każdą usługą – gratis</span></div>
+    <div><b>🌿</b><span>Kosmetyki bez amoniaku i parabenów</span></div>
+    <div><b>☕</b><span>Kawa i herbata dla każdego klienta</span></div>
+    <div><b>💳</b><span>Płatność kartą, BLIK, bony podarunkowe</span></div>
+  </div></div>
+
+  <section id="onas"><div class="wrap about">
+    <div class="photo small" role="img" aria-label="Ilustracja wnętrza salonu"></div>
+    <div>
+      <h2>O salonie</h2>
+      <p>„Lustro” to kameralny salon na trzy stanowiska. Nie pracujemy „taśmowo” – na każdą wizytę rezerwujemy tyle czasu, ile naprawdę potrzeba. Zanim weźmiemy nożyczki do ręki, rozmawiamy: o Twoich włosach, stylu życia i o tym, ile czasu rano chcesz poświęcać na fryzurę.</p>
+      <p style="margin-top:12px">Regularnie jeździmy na szkolenia z koloryzacji i strzyżeń, a w salonie używamy profesjonalnych kosmetyków, które możesz też kupić do pielęgnacji w domu.</p>
+    </div>
+  </div></section>
 
   <section id="cennik" class="alt"><div class="wrap">
     <h2>Cennik</h2><p class="sub">Ceny orientacyjne – ostateczna cena zależy od długości i gęstości włosów.</p>
@@ -124,6 +162,23 @@
     </div>
   </div></section>
 
+  <section id="slub"><div class="wrap">
+    <h2>Pakiety ślubne</h2><p class="sub">Dla Panny Młodej, mamy i świadkowej. Próbne upięcie zawsze przed ślubem.</p>
+    <div class="packs">
+      <div class="pack"><h3>Klasyczny</h3><div class="pr">250 zł</div><ul><li>próbne upięcie</li><li>upięcie w dniu ślubu w salonie</li><li>przypięcie welonu / ozdoby</li></ul></div>
+      <div class="pack hot"><span class="badge">najczęściej wybierany</span><h3>Komfort</h3><div class="pr">390 zł</div><ul><li>wszystko z pakietu Klasyczny</li><li>dojazd do domu Panny Młodej (do 20 km)</li><li>zestaw poprawek na wesele</li></ul></div>
+      <div class="pack"><h3>Dla rodziny</h3><div class="pr">od 120 zł / os.</div><ul><li>upięcia i modelowanie dla mamy, świadkowej, gości</li><li>dla grup od 3 osób rabat 10%</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="alt"><div class="wrap">
+    <h2>Bon podarunkowy</h2>
+    <div class="voucher">
+      <div><p style="font-size:19px">Nie wiesz, co kupić na urodziny lub Dzień Matki? Bon do „Lustra” na dowolną kwotę od 50 zł – ważny 6 miesięcy, w eleganckiej kopercie.</p></div>
+      <a class="btn" href="#kontakt">Zamów bon</a>
+    </div>
+  </div></section>
+
   <section id="opinie"><div class="wrap">
     <h2>Opinie klientów</h2><p class="sub">Przykładowe opinie – na prawdziwej stronie podpinamy recenzje z Google.</p>
     <div class="reviews">
@@ -133,7 +188,17 @@
     </div>
   </div></section>
 
-  <section id="kontakt" class="alt"><div class="wrap info">
+  <section class="alt"><div class="wrap">
+    <h2>Częste pytania</h2><p class="sub">Krótko i konkretnie.</p>
+    <div class="faq">
+      <details><summary>Czy muszę się wcześniej umawiać?</summary><p>Najlepiej tak – zadzwoń lub napisz SMS. Na strzyżenie męskie często przyjmujemy też „z marszu”, jeśli jest wolne stanowisko.</p></details>
+      <details><summary>Ile trwa koloryzacja?</summary><p>Jednolity kolor to ok. 2 godziny, refleksy i balayage – od 3 do 4 godzin. Dokładny czas podamy po konsultacji.</p></details>
+      <details><summary>Co jeśli nie mogę przyjść?</summary><p>Prosimy o informację najpóźniej dzień wcześniej – wtedy ktoś inny może skorzystać z terminu.</p></details>
+      <details><summary>Czy mogę przyjść z dzieckiem?</summary><p>Oczywiście. Strzyżemy dzieci od 2 lat, a na najmłodszych czeka krzesełko-samochodzik.</p></details>
+    </div>
+  </div></section>
+
+  <section id="kontakt"><div class="wrap info">
     <div class="contact">
       <h2>Umów wizytę</h2>
       <p class="sub" style="margin-bottom:12px">Najszybciej telefonicznie. Odpowiadamy też na SMS.</p>
