@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strony internetowe dla firm – Sokołów Podlaski</title>
+<meta name="description" content="Proste, szybkie i nowoczesne strony internetowe dla lokalnych firm z Sokołowa Podlaskiego i okolic. Wizytówka od 300 zł.">
+<style>
+  :root{
+    --bg:#f7f5f0; --ink:#1c1b19; --muted:#5d5a54; --line:#e3ded3;
+    --accent:#1f6f4a; --accent-ink:#ffffff; --accent-soft:#e3efe8; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  a{color:var(--accent)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(247,245,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:800;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+  .logo span{color:var(--accent)}
+  nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-size:15px}
+  nav a:hover{color:var(--ink)}
+  @media(max-width:640px){nav a:not(.btn){display:none}}
+  .btn{display:inline-block;background:var(--accent);color:var(--accent-ink)!important;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:10px;border:0;cursor:pointer;font-size:16px}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.small{padding:8px 14px;font-size:14px}
+  .btn.ghost{background:transparent;color:var(--ink)!important;border:1.5px solid var(--ink)}
+  section{padding:72px 0}
+  .hero{padding:80px 0 64px}
+  .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.08;letter-spacing:-.03em;max-width:15ch}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p.lead{font-size:clamp(18px,2.2vw,21px);color:var(--muted);max-width:58ch;margin:22px 0 30px}
+  .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .badges{display:flex;gap:22px;flex-wrap:wrap;margin-top:38px;color:var(--muted);font-size:15px}
+  .badges b{color:var(--ink)}
+  h2{font-size:clamp(28px,4vw,38px);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+  .sub{color:var(--muted);max-width:60ch;margin-bottom:36px}
+  .grid{display:grid;gap:18px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .card h3{font-size:20px;margin-bottom:6px}
+  .price{font-size:34px;font-weight:800;letter-spacing:-.02em;margin:10px 0 4px}
+  .price small{font-size:16px;font-weight:600;color:var(--muted)}
+  .card ul{list-style:none;margin-top:14px}
+  .card li{padding:6px 0 6px 26px;position:relative;border-top:1px solid var(--line);font-size:16px}
+  .card li:first-child{border-top:0}
+  .card li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
+  .card.featured{border:2px solid var(--accent);position:relative}
+  .tag{position:absolute;top:-12px;left:22px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:.04em}
+  .alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{counter-reset:s}
+  .step{position:relative;padding-left:58px}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:800;display:grid;place-items:center}
+  .step h3{font-size:18px;margin-bottom:4px}
+  .step p{color:var(--muted);font-size:16px}
+  .rules{background:var(--accent-soft);border-radius:16px;padding:28px}
+  .rules li{margin:8px 0 8px 20px}
+  .pf a.card{display:block;text-decoration:none;color:inherit;transition:transform .15s}
+  .pf a.card:hover{transform:translateY(-3px)}
+  .pf .kind{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700}
+  .pf p{color:var(--muted);font-size:15px;margin-top:6px}
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  summary{font-weight:700;cursor:pointer}
+  details p{margin-top:10px;color:var(--muted)}
+  form{display:grid;gap:14px}
+  label{font-weight:600;font-size:15px;display:grid;gap:6px}
+  input,select,textarea{font:inherit;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;width:100%}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  .contact-direct{display:grid;gap:12px;align-content:start}
+  .contact-direct a{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);font-weight:600}
+  .contact-direct a span{font-size:22px}
+  .note{font-size:14px;color:var(--muted)}
+  footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">Strony<span>.</span>Sokołów</a>
+    <nav>
+      <a href="#oferta">Oferta</a>
+      <a href="#jak">Jak to działa</a>
+      <a href="#realizacje">Realizacje</a>
+      <a href="#faq">Pytania</a>
+      <a class="btn small" href="#kontakt">Zamów stronę</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Twoja firma w Google. <em>Z własną stroną.</em></h1>
+      <p class="lead">Robię proste, szybkie i nowoczesne strony internetowe dla lokalnych firm z Sokołowa Podlaskiego i okolic: fryzjerów, warsztatów, salonów, kwiaciarni, lokali. Klient wpisuje Twoją nazwę i od razu widzi usługi, ceny, godziny otwarcia i telefon.</p>
+      <div class="actions">
+        <a class="btn" href="#kontakt">Zapytaj o wycenę</a>
+        <a class="btn ghost" href="#oferta">Zobacz ceny</a>
+      </div>
+      <div class="badges">
+        <div><b>od 300 zł</b> za stronę</div>
+        <div><b>5–7 dni</b> realizacji</div>
+        <div><b>działa na telefonie</b> i komputerze</div>
+        <div><b>lokalnie</b>, spotkanie na miejscu</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oferta" class="alt">
+    <div class="wrap">
+      <h2>Oferta i ceny</h2>
+      <p class="sub">Płacisz raz, strona jest Twoja. Bez abonamentu ode mnie.</p>
+      <div class="grid g3">
+        <div class="card">
+          <h3>Wizytówka</h3>
+          <div class="price">300 zł</div>
+          <p class="note">Jedna strona, wszystko najważniejsze</p>
+          <ul>
+            <li>O firmie i lista usług</li>
+            <li>Godziny otwarcia i mapa dojazdu</li>
+            <li>Telefon „kliknij, aby zadzwonić”</li>
+            <li>Wygląd dopasowany do telefonu</li>
+            <li>Widoczność w Google</li>
+          </ul>
+        </div>
+        <div class="card featured">
+          <span class="tag">Najczęściej wybierana</span>
+          <h3>Strona firmowa</h3>
+          <div class="price">500–700 zł</div>
+          <p class="note">Kilka podstron, więcej treści</p>
+          <ul>
+            <li>Wszystko z Wizytówki</li>
+            <li>Do 5 podstron</li>
+            <li>Cennik i galeria zdjęć</li>
+            <li>Formularz kontaktowy</li>
+            <li>Linki do Facebooka i Instagrama</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Dodatki</h3>
+          <div class="price">od 30 zł</div>
+          <p class="note">Gdy potrzebujesz czegoś więcej</p>
+          <ul>
+            <li>Konfiguracja domeny i hostingu: +50 zł</li>
+            <li>Zmiany po okresie gwarancji: 30–50 zł</li>
+            <li>Dodatkowa podstrona: wycena</li>
+            <li>Wersja w drugim języku: wycena</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jak">
+    <div class="wrap">
+      <h2>Jak to działa</h2>
+      <p class="sub">Prosto i bez technicznego żargonu.</p>
+      <div class="grid g2 steps">
+        <div class="step"><h3>Rozmowa</h3><p>Piszesz lub dzwonisz. Spotykamy się na miejscu albo ustalamy wszystko przez telefon: co ma być na stronie i jak ma wyglądać.</p></div>
+        <div class="step"><h3>Materiały</h3><p>Przesyłasz zdjęcia, logo (jeśli masz) i listę usług. Teksty mogę napisać za Ciebie.</p></div>
+        <div class="step"><h3>Projekt</h3><p>W ciągu kilku dni pokazuję gotową stronę. Wprowadzam Twoje uwagi.</p></div>
+        <div class="step"><h3>Publikacja</h3><p>Strona trafia do internetu na Twojej domenie. Dostajesz wszystkie dostępy i krótką instrukcję.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Jasne zasady</h2>
+      <div class="rules">
+        <ul>
+          <li><b>Domena i hosting są własnością klienta.</b> Kupujesz je na swoje nazwisko lub firmę, ja pomagam w konfiguracji. Dzięki temu strona zawsze należy do Ciebie.</li>
+          <li><b>14 dni bezpłatnych poprawek</b> po oddaniu strony: naprawiam wszystko, co nie działa tak, jak ustaliliśmy.</li>
+          <li><b>Później zmiany są płatne</b> za każdą zmianę osobno (30–50 zł). Bez stałego abonamentu.</li>
+          <li><b>Płatność:</b> połowa po akceptacji projektu, reszta po publikacji strony.</li>
+          <li>Proste strony-wizytówki mogą działać na <b>darmowym hostingu</b>, wtedy płacisz tylko za domenę (zwykle kilkadziesiąt zł rocznie).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="realizacje">
+    <div class="wrap">
+      <h2>Realizacje</h2>
+      <p class="sub">Przykłady moich projektów. Kliknij, aby zobaczyć na żywo.</p>
+      <div class="grid g2 pf">
+        <a class="card" href="https://help22232.github.io/zdam-zawodowy/" target="_blank" rel="noopener">
+          <div class="kind">Platforma edukacyjna</div>
+          <h3>Zdam Zawodowy</h3>
+          <p>Serwis do nauki do egzaminów zawodowych: kursy, testy próbne i symulator egzaminu dla 40 kwalifikacji.</p>
+        </a>
+        <a class="card" href="#kontakt" style="border-style:dashed">
+          <div class="kind">Miejsce na Twoją stronę</div>
+          <h3>Twoja firma może być następna</h3>
+          <p>Napisz lub zadzwoń. Pokażę, jak mogłaby wyglądać strona Twojej firmy, bezpłatnie i bez zobowiązań.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <h2>Najczęstsze pytania</h2>
+      <details><summary>Mam już Facebooka. Po co mi strona?</summary><p>Nie każdy klient ma Facebooka, a Google częściej pokazuje strony internetowe. Strona to Twoje miejsce w sieci: nie zależy od algorytmów i zawsze wygląda profesjonalnie.</p></details>
+      <details><summary>Nie znam się na komputerach. Czy dam radę?</summary><p>Tak. Wszystko ustawiam za Ciebie, a Ty dostajesz prostą instrukcję. Jeśli coś będzie niejasne, przyjadę i pokażę.</p></details>
+      <details><summary>Ile kosztuje utrzymanie strony?</summary><p>Ode mnie: nic, nie ma abonamentu. Płacisz tylko za swoją domenę (zwykle kilkadziesiąt zł rocznie) i ewentualnie hosting, jeśli strona go wymaga.</p></details>
+      <details><summary>Ile czeka się na stronę?</summary><p>Zwykle 5–7 dni od otrzymania materiałów (zdjęć, listy usług).</p></details>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <h2>Zamów stronę</h2>
+      <p class="sub">Napisz kilka słów o swojej firmie. Odezwę się najpóźniej następnego dnia z bezpłatną wyceną.</p>
+      <div class="grid g2">
+        <form id="orderForm">
+          <label>Imię i nazwisko<input name="imie" required autocomplete="name"></label>
+          <label>Nazwa firmy<input name="firma" required></label>
+          <label>Telefon<input name="telefon" type="tel" required autocomplete="tel"></label>
+          <label>Rodzaj strony
+            <select name="pakiet">
+              <option>Wizytówka (300 zł)</option>
+              <option>Strona firmowa (500–700 zł)</option>
+              <option>Jeszcze nie wiem</option>
+            </select>
+          </label>
+          <label>Kilka słów o firmie<textarea name="opis" rows="4" placeholder="Np. salon fryzjerski, chcę cennik i zdjęcia"></textarea></label>
+          <button class="btn" type="submit">Wyślij zapytanie</button>
+          <p class="note">Po kliknięciu otworzy się Twoja poczta z gotową wiadomością, wystarczy ją wysłać.</p>
+        </form>
+        <div class="contact-direct">
+          <a id="callLink" href="#"><span>📞</span><div>Zadzwoń<br><small class="note" id="phoneText"></small></div></a>
+          <a id="mailLink" href="#"><span>✉️</span><div>Napisz e-mail<br><small class="note" id="mailText"></small></div></a>
+          <p class="note">Działam w Sokołowie Podlaskim i okolicach. Chętnie spotkam się na miejscu w Twojej firmie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> <span id="ownerName"></span> · Strony internetowe dla firm · Sokołów Podlaski</div>
+</footer>
+
+<script>
+  /* ===== USTAW SWOJE DANE (zmień tylko te 3 linijki) ===== */
+  const CONFIG = {
+    name:  "Arsen Svishchuk",
+    phone: "+48 577 354 035",
+    email: "sokolow.strony@gmail.com"
+  };
+  /* ======================================================== */
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('ownerName').textContent = CONFIG.name;
+  const tel = CONFIG.phone.replace(/\s/g,'');
+  document.getElementById('callLink').href = 'tel:' + tel;
+  document.getElementById('phoneText').textContent = CONFIG.phone;
+  document.getElementById('mailLink').href = 'mailto:' + CONFIG.email;
+  document.getElementById('mailText').textContent = CONFIG.email;
+
+  document.getElementById('orderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const d = new FormData(this);
+    const body =
+      'Imię i nazwisko: ' + d.get('imie') + '\n' +
+      'Firma: ' + d.get('firma') + '\n' +
+      'Telefon: ' + d.get('telefon') + '\n' +
+      'Rodzaj strony: ' + d.get('pakiet') + '\n\n' +
+      (d.get('opis') || '');
+    const subject = 'Zapytanie o stronę: ' + d.get('firma');
+    location.href = 'mailto:' + CONFIG.email +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+  });
+</script>
+</body>
+</html>
